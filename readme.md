@@ -6,4 +6,4 @@
 **Project Information**
 
 Please refer to QuoteCalculatorAPI repository for setup guidlines of the project
-https://github.com/angelo-cuartel
+https://github.com/angelocuartel/Quote-Calculator-API
