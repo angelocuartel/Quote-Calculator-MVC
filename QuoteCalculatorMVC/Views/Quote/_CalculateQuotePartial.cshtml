@@ -1,0 +1,62 @@
+﻿@using Newtonsoft.Json;
+@model QuoteInformationModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="shadow-lg mx-auto bg-white rounded-3 container" style="margin-top:50px; max-width:650px;">
+    <h3 class="font-bold pt-4 text-center text-secondary">
+        QUOTE CALCULATOR
+    </h3>
+    <div class="p-5 mt-2 text-secondary text-center">
+        <form id="form-group">
+            <input type="text" hidden asp-for="Id"/>
+        <div id="finance-section">
+            <div class="d-flex justify-content-center ">
+                <div class=" my-1 mx-5 text-nowrap">
+                    <label>Term</label>
+                    <h4 id="term-counter" class="text-primary">@Model.Term Months</h4>
+                </div>
+                <div class=" my-1 mx-5">
+                    <label>Amount</label>
+                    <h4 id="amount" class="text-primary">@Model.AmountRequired.ToString("C2")</h4>
+                </div>
+            </div>
+
+            <input type="range" min="1" asp-for="Term" value="@Model.Term" max="74" id="range-month-input" class="form-range" />
+            <div class="d-flex font-bold text-secondary text-sm-center justify-content-between">
+                <p>1 month</p>
+                <p>How many months?</p>
+                <p>24 months</p>
+            </div>
+            <input asp-for="AmountRequired" type="range" min="2100" value="@Model.AmountRequired" max="15000" id="range-amount-input" class="range-input form-range" />
+            <div class="d-flex font-bold text-secondary text-sm-center justify-content-between">
+                <p>$2,100</p>
+                <p>How much do you need?</p>
+                <p>$15,000</p>
+            </div>
+        </div>
+        <div id="details-section">
+            <p class="text-primary align-text-bottom text-start mb-0">Title</p>
+            <div class="d-flex mt-0">
+                <select asp-for="Title" class="btn-outline-light form-control border-0 fs-4 text-secondary form-control-sm">
+                    <option value="Mr.">Mr.</option>
+                    <option value="Ms.">Ms.</option>
+                </select>
+                <input type="text" asp-for="FirstName" placeholder="First Name" class="btn-outline-light fs-5 text-secondary form-control form-control-sm border-0 form-control-sm" />
+                <input type="text" asp-for="LastName" placeholder="Last Name" class=" btn-outline-light fs-5 text-secondary  form-control border-0 form-control-sm" />
+            </div>
+            <p class="text-primary align-text-bottom text-start mb-0 mt-2">BirthDate</p>
+            <div class="d-flex mb-3 mt-0">
+                <input type="date" asp-for="DateOfBirth" class="btn-outline-light fs-5 text-secondary form-control border-0 form-control-sm" />
+                <input type="email" asp-for="Email" placeholder="Email" class="btn-outline-light fs-5 text-secondary form-control border-0 form-control-sm" />
+                <input type="text" asp-for="MobileNo" placeholder="Mobile" class=" btn-outline-light fs-5 text-secondary form-control border-0 form-control-sm" />
+            </div>
+        </div>
+        </form>
+        <btn class="btn btn-primary my-4 w-50 calculate-quote-btn">Calculate Quote</btn>
+        <p>Quote does not affect your credit score.</p>
+    </div>
+</div>
+
+
